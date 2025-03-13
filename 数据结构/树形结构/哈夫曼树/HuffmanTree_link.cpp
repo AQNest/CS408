@@ -3,27 +3,14 @@
  
 #define n 4
 
-// void WPL(Htree T, int &wpl, int height = 0){  
-
-//     if(!T) return;
-//     if(!T->lchild && !T->rchild)  wpl += T->weight * height;
-
-//     // 递归
-//     WPL(T->lchild, wpl, height + 1);
-//     WPL(T->rchild, wpl, height + 1);
-// }
-
 int WPL(Htree T, int height = 0){
-    static int wpl = 0;
     if(!T) return 0;
-    if(!T->lchild && !T->rchild)  wpl += T->weight * height;
+    if(!T->lchild && !T->rchild)  return T->weight * height;
 
     // 递归
-    WPL(T->lchild, height + 1);
-    WPL(T->rchild, height + 1);
-
-    return wpl;
+    return WPL(T->lchild, height + 1) + WPL(T->rchild, height + 1);
 }
+
 
 int main(){
     int weight[n] = {7, 5, 2, 4};
