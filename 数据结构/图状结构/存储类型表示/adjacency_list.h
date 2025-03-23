@@ -47,7 +47,7 @@ typedef struct
 #include<iostream>
 
 int FindVex(ALGraph G, vetextype v){
-    for(int i = 0; i < G.EdgeNum; i++)
+    for(int i = 0; i < G.Vexnum; i++)
         if(G.Vex[i].info == v) return i;
     return -1;
 }
